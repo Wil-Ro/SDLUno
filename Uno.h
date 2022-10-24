@@ -5,6 +5,7 @@
 #include "Button.h"
 #include "GameMaster.h"
 #include "Card.h"
+#include "Deck.h"
 
 #include <SDL.h>
 
@@ -22,6 +23,7 @@ public:
 	void RunGame();
 
 	void CardTest(Display* display);
+
 private:
 	Display* display = NULL;
 

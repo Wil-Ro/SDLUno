@@ -11,5 +11,6 @@ public:
 	virtual void AddTexture(SDL_Renderer* renderer, const char* fileName);
 	virtual void CenterTexture(SDL_Rect rect);
 	virtual SDL_Texture* GetTexture();
+	virtual void SetLocation(SDL_Rect rect);
 };
 

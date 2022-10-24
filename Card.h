@@ -14,14 +14,14 @@ public:
 	Card(SDL_Renderer* renderer, SDL_Rect rect, SDL_Color color, int value, bool facingPlayer = true);
 	~Card();
 	void FlipCard();
+
+	void RenderCall(SDL_Renderer* renderer);
 private:
 	SDL_Color color{0, 0, 0, 0};
 	bool facingPlayer = true;
 	int value;
 
 	Text* text;
-
-	void RenderCall(SDL_Renderer* renderer);
 	
 };
 

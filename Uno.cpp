@@ -18,6 +18,7 @@ void Uno::RunProgram()
 	//RunGame();
 }
 
+
 void Uno::RunGame()
 {
 	display->ClearRenderables();
@@ -89,3 +90,7 @@ void Uno::CardTest(Display* display)
 		}
 	}
 }
+
+
+// deck is working
+// get hand working

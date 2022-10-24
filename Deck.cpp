@@ -7,10 +7,11 @@ Deck::Deck(SDL_Rect rect)
 
 Card* Deck::DrawCard()
 {
+	if (deck.size() <= 0)
+		return 0;
 	Card* tempCard = deck.top();
 	deck.pop();
 	return tempCard;
-	RefreshTopTexture();
 }
 
 void Deck::PlayCard(Card* card, bool flipCard)
@@ -18,13 +19,16 @@ void Deck::PlayCard(Card* card, bool flipCard)
 	if (flipCard)
 		card->FlipCard();
 	deck.push(card);
-
-	RefreshTopTexture();
 }
 
-void Deck::RefreshTopTexture()
+// this is where we are rn
+void Deck::RenderCall(SDL_Renderer* renderer)
 {
-	texture = deck.top()->GetTexture();
+	if (deck.size() <= 0)
+		return;
+
+	deck.top()->SetLocation(location);
+	deck.top()->RenderCall(renderer);
 }
 
 // this will need redoing at somepoint, it doesnt give the correct cards rn

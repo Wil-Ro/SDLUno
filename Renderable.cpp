@@ -28,3 +28,8 @@ SDL_Texture* Renderable::GetTexture()
 {
 	return texture;
 }
+
+void Renderable::SetLocation(SDL_Rect rect)
+{
+	location = rect;
+}

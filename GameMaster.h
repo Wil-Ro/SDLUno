@@ -7,10 +7,7 @@
 class GameMaster
 {
 public:
-	GameMaster(Display* display);
-
-	Deck playDeck;
-	Deck drawDeck;
+	GameMaster();
 private:
 	
 };

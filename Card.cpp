@@ -52,7 +52,8 @@ void Card::RenderCall(SDL_Renderer* renderer)
 	{
 		SDL_LogError(0, "Failed to Render");
 	}
-	
+	// set text location incase card has been moved
+	text->CenterTexture(location);
 	text->RenderCall(renderer);
 }
 

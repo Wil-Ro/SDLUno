@@ -1,3 +1,2 @@
 ﻿  Uno.cpp
-C:\Users\Rosia\source\repos\SDLTest\Uno.cpp(27,13): warning C4101: 'gameMaster': unreferenced local variable
   SDLTest.vcxproj -> C:\Users\Rosia\source\repos\SDLTest\x64\Debug\SDLTest.exe

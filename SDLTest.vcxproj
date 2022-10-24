@@ -137,6 +137,7 @@
     <ClInclude Include="Deck.h" />
     <ClInclude Include="FPSCounter.h" />
     <ClInclude Include="GameMaster.h" />
+    <ClInclude Include="Hand.h" />
     <ClInclude Include="RectMaths.h" />
     <ClInclude Include="Renderable.h" />
     <ClInclude Include="Uno.h" />
@@ -154,6 +155,7 @@
     <ClCompile Include="Deck.cpp" />
     <ClCompile Include="FPSCounter.cpp" />
     <ClCompile Include="GameMaster.cpp" />
+    <ClCompile Include="Hand.cpp" />
     <ClCompile Include="Renderable.cpp" />
     <ClCompile Include="Uno.cpp" />
     <ClCompile Include="Slider.cpp" />
