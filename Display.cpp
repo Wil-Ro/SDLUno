@@ -1,4 +1,5 @@
 #include "Display.h"
+#include "Renderable.h" // including this here to avoid circular dependancies
 
 
     Display::Display(int w, int h, const char* windowTitle, SDL_Color backgroundColor)
@@ -42,9 +43,26 @@
 		}
 	}
 
-	void Display::AddRenderable(Renderable *toAdd)
+	void Display::AddRenderable(Renderable* toAdd)
 	{
-		renderList.push_front(toAdd);
+		/*
+		create an iterator to go through the list
+		then when it finds the element with a zOrder
+		bigger than toAdd, move that iterator back one
+		and use insert() to place the item there
+		*/
+		if (renderList.size() <= 0)
+			renderList.push_front(toAdd);
+
+		auto it = renderList.begin();
+		for (int i = 0; i < renderList.size(); i++, it++)
+		{
+			if (toAdd->GetZOrder() < (*it)->GetZOrder())
+			{
+				renderList.insert(it, toAdd);
+				break;
+			}
+		}
 	}
 
 	void Display::ProcessRender()
@@ -62,5 +80,14 @@
 	{
 		renderList.clear();
 	}
+
+	void Display::RecalculateZOrder(Renderable* toCheck)
+	{
+		// remove it from list, add it again, when adding it will
+		// place it in the new correct order
+		renderList.remove(toCheck);
+		AddRenderable(toCheck);
+	}
+
 
 	

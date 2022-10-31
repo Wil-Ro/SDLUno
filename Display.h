@@ -4,7 +4,10 @@ This is a wrapper object that contains both a Window and a Renderer,
 when creating graphics you should just need one of these to do all 
 the jobs you need.
 
-This should deal with text rendering too
+This handles anything renderable including Interactables and text
+
+This also supports z-ordering! The larger the number the further
+forward it is.
 */
 
 #pragma once
@@ -15,6 +18,9 @@ This should deal with text rendering too
 #include <list>
 
 #include "Renderable.h"
+
+class Renderable;
+
 
 class Display
 {
@@ -39,6 +45,8 @@ public:
 	void ProcessRender();
 	void PrepareRender();
 	void ClearRenderables();
+
+	void RecalculateZOrder(Renderable* toCheck);
 
 	int w() const { return w_; }
 	int h() const { return h_; }
