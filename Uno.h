@@ -6,6 +6,10 @@
 #include "GameMaster.h"
 #include "Card.h"
 #include "Deck.h"
+#include "Hand.h"
+#include "PlayerHand.h"
+
+#include "FPSCounter.h"
 
 #include <SDL.h>
 
