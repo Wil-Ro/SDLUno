@@ -48,4 +48,31 @@ void Deck::FillDeck(SDL_Renderer* renderer)
 			));
 		}
 	}
+	ShuffleDeck();
+}
+
+void Deck::ShuffleDeck()
+{
+	// copy stack into vector
+	// this can be done more efficiently but my understanding
+	// of container adapters is severely lacking
+	std::vector<Card*> buffer;
+	// deck size changes when we pop so this stores 
+	// the original value
+	int deckSize = deck.size();
+	for (int i = 0; i < deckSize; i++)
+	{
+		buffer.push_back(deck.top());
+		deck.pop();
+	}
+	
+	// shuffle vector
+	std::random_device randomDevice;
+	std::mt19937 gen(randomDevice());
+	std::shuffle(buffer.begin(), buffer.end(), gen);
+
+	// copy back into stack
+	for (Card* item : buffer)
+		deck.push(item);
+	
 }
