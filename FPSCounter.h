@@ -1,5 +1,8 @@
 #include <SDL.h>
 #include <math.h>
+#include <string>
+
+#include "Text.h"
 
 class FPSCounter
 {
@@ -9,9 +12,14 @@ private:
 	Uint64 lastSecond = 0;
 	int frequency;
 
+	Text* text;
+
 public:
 	FPSCounter(int frequency);
+	FPSCounter(SDL_Renderer* renderer, int frequency);
+	~FPSCounter();
 	void IncreaseFrameCount();
 	int GetFrameCount();
+	void DrawSelf(SDL_Renderer* renderer);
 };
 
