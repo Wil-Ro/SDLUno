@@ -19,7 +19,6 @@ forward it is.
 
 #include "Renderable.h"
 
-class Renderable;
 
 
 class Display
@@ -46,7 +45,6 @@ public:
 	void PrepareRender();
 	void ClearRenderables();
 
-	void RecalculateZOrder(Renderable* toCheck);
 
 	int w() const { return w_; }
 	int h() const { return h_; }

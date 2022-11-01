@@ -37,6 +37,10 @@
 
 	void Display::RenderAll()
 	{
+		renderList.sort([](Renderable* item1, Renderable* item2)
+			{
+				return item1->zOrder < item2->zOrder;
+			});
 		for (Renderable* item : renderList)
 		{
 			item->RenderCall(renderer);
@@ -45,24 +49,7 @@
 
 	void Display::AddRenderable(Renderable* toAdd)
 	{
-		/*
-		create an iterator to go through the list
-		then when it finds the element with a zOrder
-		bigger than toAdd, move that iterator back one
-		and use insert() to place the item there
-		*/
-		if (renderList.size() <= 0)
-			renderList.push_front(toAdd);
-
-		auto it = renderList.begin();
-		for (int i = 0; i < renderList.size(); i++, it++)
-		{
-			if (toAdd->GetZOrder() < (*it)->GetZOrder())
-			{
-				renderList.insert(it, toAdd);
-				break;
-			}
-		}
+		renderList.push_back(toAdd);
 	}
 
 	void Display::ProcessRender()
@@ -81,13 +68,6 @@
 		renderList.clear();
 	}
 
-	void Display::RecalculateZOrder(Renderable* toCheck)
-	{
-		// remove it from list, add it again, when adding it will
-		// place it in the new correct order
-		renderList.remove(toCheck);
-		AddRenderable(toCheck);
-	}
 
 
 	

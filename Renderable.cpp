@@ -1,5 +1,4 @@
 #include "Renderable.h"
-#include "Display.h" // I feel dirty
 
 
 void Renderable::RenderCall(SDL_Renderer* renderer)
@@ -33,15 +32,4 @@ SDL_Texture* Renderable::GetTexture()
 void Renderable::SetLocation(SDL_Rect rect)
 {
 	location = rect;
-}
-
-void Renderable::ChangeZOrder(Display* display, int zOrder)
-{
-	this->zOrder = zOrder;
-	display->RecalculateZOrder(this);
-}
-
-int Renderable::GetZOrder()
-{
-	return zOrder;
 }

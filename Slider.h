@@ -1,7 +1,7 @@
 #pragma once
-#include "UiInteractable.h"
+#include "Interactable.h"
 #include "BaseEventHandler.h"
-class Slider:public UiInteractable
+class Slider:public Interactable
 {
 public:
 	Slider(SDL_Rect rect);

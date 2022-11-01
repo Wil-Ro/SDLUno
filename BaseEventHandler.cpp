@@ -31,7 +31,7 @@ void BaseEventHandler::Handle()
 
 void BaseEventHandler::MouseDownCheck(MousePos mousePos)
 {
-	for (UiInteractable* inter : checkList)
+	for (Interactable* inter : checkList)
 	{
 		inter->MouseDown(mousePos);
 	}
@@ -39,7 +39,7 @@ void BaseEventHandler::MouseDownCheck(MousePos mousePos)
 
 void BaseEventHandler::MouseUpCheck(MousePos mousePos)
 {
-	for (UiInteractable* inter : checkList)
+	for (Interactable* inter : checkList)
 	{
 		inter->MouseUp(mousePos);
 	}
@@ -47,13 +47,13 @@ void BaseEventHandler::MouseUpCheck(MousePos mousePos)
 
 void BaseEventHandler::RunProcess()
 {
-	for (UiInteractable* inter : checkList)
+	for (Interactable* inter : checkList)
 	{
 		inter->Process();
 	}
 }
 
-void BaseEventHandler::AddInteractable(UiInteractable* toAdd)
+void BaseEventHandler::AddInteractable(Interactable* toAdd)
 {
 	checkList.push_front(toAdd);
 }

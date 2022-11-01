@@ -138,6 +138,7 @@
     <ClInclude Include="FPSCounter.h" />
     <ClInclude Include="GameMaster.h" />
     <ClInclude Include="Hand.h" />
+    <ClInclude Include="PlayerHand.h" />
     <ClInclude Include="RectMaths.h" />
     <ClInclude Include="Renderable.h" />
     <ClInclude Include="Uno.h" />
@@ -145,8 +146,7 @@
     <ClInclude Include="SpaceShooter.h" />
     <ClInclude Include="Display.h" />
     <ClInclude Include="Text.h" />
-    <ClInclude Include="UiElement.h" />
-    <ClInclude Include="UiInteractable.h" />
+    <ClInclude Include="Interactable.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BaseEventHandler.cpp" />
@@ -156,6 +156,7 @@
     <ClCompile Include="FPSCounter.cpp" />
     <ClCompile Include="GameMaster.cpp" />
     <ClCompile Include="Hand.cpp" />
+    <ClCompile Include="PlayerHand.cpp" />
     <ClCompile Include="Renderable.cpp" />
     <ClCompile Include="Uno.cpp" />
     <ClCompile Include="Slider.cpp" />
@@ -163,8 +164,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Display.cpp" />
     <ClCompile Include="Text.cpp" />
-    <ClCompile Include="UiElement.cpp" />
-    <ClCompile Include="UiInteractable.cpp" />
+    <ClCompile Include="Interactable.cpp" />
     <ClCompile Include="UITestCode.cpp" />
   </ItemGroup>
   <ItemGroup>

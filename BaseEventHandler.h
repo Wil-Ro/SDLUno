@@ -12,11 +12,11 @@ and ui stuff, any sort of game input should be done elsewhere
 class BaseEventHandler
 {
 
-	std::list<UiInteractable*> checkList;
+	std::list<Interactable*> checkList;
 
 public:
 	void Handle();
-	void AddInteractable(UiInteractable *toAdd);
+	void AddInteractable(Interactable *toAdd);
 
 	bool MouseStatus;
 

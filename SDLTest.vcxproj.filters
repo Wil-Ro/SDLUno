@@ -63,10 +63,7 @@
     <ClInclude Include="Text.h">
       <Filter>Header Files\General</Filter>
     </ClInclude>
-    <ClInclude Include="UiElement.h">
-      <Filter>Header Files\General</Filter>
-    </ClInclude>
-    <ClInclude Include="UiInteractable.h">
+    <ClInclude Include="Interactable.h">
       <Filter>Header Files\General</Filter>
     </ClInclude>
     <ClInclude Include="SpaceShooter.h">
@@ -85,6 +82,9 @@
       <Filter>Header Files\Uno</Filter>
     </ClInclude>
     <ClInclude Include="Hand.h">
+      <Filter>Header Files\Uno</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerHand.h">
       <Filter>Header Files\Uno</Filter>
     </ClInclude>
   </ItemGroup>
@@ -119,10 +119,7 @@
     <ClCompile Include="Text.cpp">
       <Filter>Source Files\General</Filter>
     </ClCompile>
-    <ClCompile Include="UiElement.cpp">
-      <Filter>Source Files\General</Filter>
-    </ClCompile>
-    <ClCompile Include="UiInteractable.cpp">
+    <ClCompile Include="Interactable.cpp">
       <Filter>Source Files\General</Filter>
     </ClCompile>
     <ClCompile Include="SpaceShooter.cpp">
@@ -138,6 +135,9 @@
       <Filter>Source Files\Uno</Filter>
     </ClCompile>
     <ClCompile Include="Hand.cpp">
+      <Filter>Source Files\Uno</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerHand.cpp">
       <Filter>Source Files\Uno</Filter>
     </ClCompile>
   </ItemGroup>

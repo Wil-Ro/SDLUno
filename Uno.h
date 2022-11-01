@@ -22,7 +22,7 @@ public:
 	void RunMenu();
 	void RunGame();
 
-	void CardTest(Display* display);
+	void CardTest(Display* display, int gap = 5, int row = 4);
 
 private:
 	Display* display = NULL;

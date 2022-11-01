@@ -2,9 +2,9 @@
 #include <SDL.h>
 #include <functional>
 #include "BaseStructs.h"
-#include "UiInteractable.h"
+#include "Interactable.h"
 
-class Button: public UiInteractable
+class Button: public Interactable
 {
 
 public:

@@ -3,7 +3,7 @@
 #include <string>
 
 
-Card::Card(SDL_Renderer* renderer, SDL_Rect rect, SDL_Color color, int value, bool facingPlayer)
+Card::Card(SDL_Renderer* renderer, SDL_Rect rect, SDL_Color color, int value, bool facingPlayer, bool interactable)
 {
 	AddTexture(renderer, "textures/unoCard.png");
 
@@ -15,6 +15,7 @@ Card::Card(SDL_Renderer* renderer, SDL_Rect rect, SDL_Color color, int value, bo
 	this->color = color;
 	this->value = value;
 	this->facingPlayer = facingPlayer;
+	this->interactable = interactable;
 
 	text = new Text(renderer, std::to_string(value).c_str(), 50, location, {255, 255, 255, 255});;
 	text->CenterTexture(location);
@@ -27,6 +28,20 @@ Card::~Card()
 
 void Card::RenderCall(SDL_Renderer* renderer)
 {
+	SDL_Rect location = this->location;
+
+	MousePos mousePos;
+	SDL_GetMouseState(&mousePos.x, &mousePos.y);
+	if (interactable && CheckMouseOver(mousePos))
+	{
+		location.y -= 30;
+		zOrder = 10;
+	}
+	else if (!CheckMouseOver(mousePos) && zOrder == 10)
+	{
+		zOrder = 0;
+	}
+	
 	if (!facingPlayer)
 	{
 		SDL_Texture* cardBack = IMG_LoadTexture(renderer, "textures/unoCardBack.png");
