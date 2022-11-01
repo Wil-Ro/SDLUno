@@ -33,3 +33,11 @@ void Renderable::SetLocation(SDL_Rect rect)
 {
 	location = rect;
 }
+
+void Renderable::ShiftLocation(SDL_Rect rect)
+{
+	location.x += rect.x;
+	location.y += rect.y;
+	location.w += rect.w;
+	location.h += rect.h;
+}
