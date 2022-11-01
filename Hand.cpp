@@ -1,13 +1,24 @@
 #include "Hand.h"
 
-Hand::Hand(Deck* deck)
+Hand::Hand()
 {
-	this->deck = deck;
+	return;
+}
+
+Hand::Hand(Deck* drawDeck)
+{
+	this->drawDeck = drawDeck;
+}
+
+Hand::Hand(Deck* drawDeck, Deck* playDeck)
+{
+	this->drawDeck = drawDeck;
+	this->playDeck = playDeck;
 }
 
 void Hand::FillHand()
 {
-	for (int i = 0; i >= 7; i++)
+	for (int i = 0; i <= 7; i++)
 	{
 		DrawCard();
 	}
@@ -15,17 +26,24 @@ void Hand::FillHand()
 
 void Hand::PlayCard(Card* card)
 {
-	deck->PlayCard(card);
+	playDeck->PlayCard(card);
+
+	// once card is added to deck, find and remove from hand
+	auto it = std::find(hand.begin(), hand.end(), card);
+	hand.erase(it);
+
+	// also check for effect, if there is one, run it
+	// e.g. reverse or wildcard
 }
 
 void Hand::DrawCard()
 {
-	hand.push_back(deck->DrawCard());
+	hand.push_back(drawDeck->DrawCard());
 }
 
 void Hand::RenderCall(SDL_Renderer* renderable)
 {
 	// dont do anything here, this will be overridden by
-	// the player 
+	// the player
 	return;
 }

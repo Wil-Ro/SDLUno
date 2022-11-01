@@ -19,7 +19,6 @@ public:
 	void FlipCard();
 
 	void RenderCall(SDL_Renderer* renderer);
-	void RenderCall(Display* display);
 
 	bool interactable = false;
 private:

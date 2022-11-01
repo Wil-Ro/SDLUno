@@ -1,11 +1,13 @@
 #pragma once
 #include "Deck.h"
 #include <vector>
-class Hand : public Renderable
+class Hand : public Interactable
 {
 public:
 
-	Hand(Deck* deck);
+	Hand();
+	Hand(Deck* drawDeck);
+	Hand(Deck* drawDeck, Deck* playDeck);
 
 	void DrawCard();
 	void PlayCard(Card* card);
@@ -14,7 +16,8 @@ public:
 	void RenderCall(SDL_Renderer* renderer);
 protected:
 	std::vector<Card*> hand;
-	Deck* deck;
+	Deck* drawDeck = 0;
+	Deck* playDeck = 0;
 };
 
 

@@ -17,7 +17,7 @@ Card::Card(SDL_Renderer* renderer, SDL_Rect rect, SDL_Color color, int value, bo
 	this->facingPlayer = facingPlayer;
 	this->interactable = interactable;
 
-	text = new Text(renderer, std::to_string(value).c_str(), 50, location, {255, 255, 255, 255});;
+	text = new Text(renderer, std::to_string(value).c_str(), 50, location, {255, 255, 255, 255});
 	text->CenterTexture(location);
 }
 

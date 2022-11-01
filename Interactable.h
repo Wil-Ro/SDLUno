@@ -10,7 +10,9 @@ public:
 	virtual void MouseUp(MousePos mouse);
 	virtual void Process();
 
-protected:
 	virtual bool CheckMouseOver(MousePos mouse);
+
+protected:
+	
 };
 
