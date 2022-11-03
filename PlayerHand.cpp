@@ -23,8 +23,6 @@ void PlayerHand::FillHand()
 
 void PlayerHand::DrawCard()
 {
-	// DrawCard draws a card into the hand and additionally
-	// returns a pointer to it incase we need it
 	Hand::DrawCard();
 	hand.back()->interactable = true;
 }
@@ -43,14 +41,15 @@ void PlayerHand::MouseDown(MousePos mouse)
 
 void PlayerHand::RenderCall(SDL_Renderer* renderer)
 {
-	// work out and set location of each card
 	// set locations
 	// render all
+
+	// x = hand.x+i*(width/number of cards)
 
 	for (int i = 0; i < hand.size(); i++)
 	{
 		Card* card = hand[i];
-		card->SetLocation({location.x + 80*i, location.y, 100, 150});
+		card->SetLocation({location.x + i * (location.w/(int)hand.size()), location.y, 100, 150});
 		card->RenderCall(renderer);
 	}
 	

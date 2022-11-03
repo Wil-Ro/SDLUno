@@ -28,6 +28,7 @@ public:
 
 	void CardTest(Display* display, int gap = 5, int row = 4);
 
+
 private:
 	Display* display = NULL;
 

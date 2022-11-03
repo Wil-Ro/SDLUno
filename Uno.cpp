@@ -29,9 +29,11 @@ void Uno::RunGame()
 
 	GameMaster gameMaster;
 
+	
+
 	Deck drawDeck({0, 0, 100, 150});
 	drawDeck.CenterTexture({ 0, 0, display->w(), display->h() });
-	drawDeck.FillDeck(display->renderer);
+	drawDeck.FillDeck(display->renderer, false);
 
 	Deck playDeck({ 0, 0, 100, 150 });
 	playDeck.CenterTexture({0, 0, display->w(), display->h()});
@@ -40,15 +42,19 @@ void Uno::RunGame()
 	drawDeck.ShiftLocation({-52 });
 	playDeck.ShiftLocation({ 52 });
 
-	PlayerHand testHand({30, display->h()-200}, &drawDeck, &playDeck);
+	PlayerHand testHand({30, display->h()-200, display->w()-30, 200}, &drawDeck, &playDeck);
 	testHand.FillHand();
+
+	Button drawButton({ 30, display->h() - 240, 100, 30 }, [&testHand](){testHand.DrawCard(); });
+	drawButton.AddTexture(display->renderer, "textures/quitButton.png");
 
 	display->AddRenderable(&drawDeck);
 	display->AddRenderable(&playDeck);
 	display->AddRenderable(&testHand);
+	display->AddRenderable(&drawButton);
 
 	handler.AddInteractable(&testHand);
-
+	handler.AddInteractable(&drawButton);
 
 
 	while (true)
@@ -121,9 +127,13 @@ void Uno::CardTest(Display* display, int gap, int row)
 }
 
 
-// rework card to work for hand and be buttons and such
-// get hand working <- big task
+// get gamemaster working, skip ai for now, just get it
+// taking a players turn, waiting a bit on ai and repeating
 
 // holy shit your code is awful, decks sizes arnt hardcoded rn
 // fix that
 // 100, 150
+
+// drawcard crashes when deck is empty as it return nullpointer
+
+// you can click through a button to click the thing beneath it, add z-priotity on clicking

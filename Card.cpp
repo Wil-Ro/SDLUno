@@ -6,6 +6,7 @@
 Card::Card(SDL_Renderer* renderer, SDL_Rect rect, SDL_Color color, int value, bool facingPlayer, bool interactable)
 {
 	AddTexture(renderer, "textures/unoCard.png");
+	cardBack = IMG_LoadTexture(renderer, "textures/unoCardBack.png");
 
 	location = rect;
 	SDL_QueryTexture(texture, NULL, NULL, &location.w, &location.h);
@@ -34,7 +35,7 @@ void Card::RenderCall(SDL_Renderer* renderer)
 	SDL_GetMouseState(&mousePos.x, &mousePos.y);
 	if (interactable && CheckMouseOver(mousePos))
 	{
-		location.y -= 30;
+		location.y -= 100;
 		zOrder = 10;
 	}
 	else if (!CheckMouseOver(mousePos) && zOrder == 10)
@@ -44,7 +45,6 @@ void Card::RenderCall(SDL_Renderer* renderer)
 	
 	if (!facingPlayer)
 	{
-		SDL_Texture* cardBack = IMG_LoadTexture(renderer, "textures/unoCardBack.png");
 		if (SDL_RenderCopy(renderer, cardBack, NULL, &location) != 0)
 		{
 			SDL_LogError(0, "Failed to Render");

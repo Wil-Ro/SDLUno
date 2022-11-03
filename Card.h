@@ -3,8 +3,9 @@
 #include "Text.h"
 #include <SDL_image.h>
 
-// temp while testing new rendercall function
-#include "Display.h"
+// ###IMPORTANT INFO###
+// card must always have cardBack defined before use, normally
+// at the top of main before the renderloop
 
 const SDL_Color Red{ 219, 96, 96, 255 };
 const SDL_Color Yellow{ 219, 213, 96, 255 };
@@ -16,17 +17,21 @@ class Card :public Interactable
 public:
 	Card(SDL_Renderer* renderer, SDL_Rect rect, SDL_Color color, int value, bool facingPlayer = true, bool interactable = false);
 	~Card();
+
 	void FlipCard();
 
 	void RenderCall(SDL_Renderer* renderer);
 
 	bool interactable = false;
+	bool facingPlayer = true;
+
 private:
 	SDL_Color color{0, 0, 0, 0};
-	bool facingPlayer = true;
 	int value;
 
 	Text* text;
+
+	SDL_Texture* cardBack;
 	
 };
 

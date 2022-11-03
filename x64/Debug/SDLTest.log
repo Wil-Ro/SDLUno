@@ -1,4 +1,9 @@
-﻿  GameMaster.cpp
+﻿  Deck.cpp
+  compiled renderable
+C:\Users\Rosia\source\repos\SDLTest\Deck.cpp(66,28): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  GameMaster.cpp
+  compiled renderable
+  Hand.cpp
   compiled renderable
   Main.cpp
   compiled renderable

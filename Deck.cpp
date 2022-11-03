@@ -5,12 +5,16 @@ Deck::Deck(SDL_Rect rect)
 	location = rect;
 }
 
-Card* Deck::DrawCard()
+Card* Deck::DrawCard(bool flipCard)
 {
 	if (deck.size() <= 0)
 		return 0;
 	Card* tempCard = deck.top();
 	deck.pop();
+
+	if (flipCard)
+		tempCard->FlipCard();
+
 	return tempCard;
 }
 
@@ -32,7 +36,7 @@ void Deck::RenderCall(SDL_Renderer* renderer)
 }
 
 // this will need redoing at somepoint, it doesnt give the correct cards rn
-void Deck::FillDeck(SDL_Renderer* renderer)
+void Deck::FillDeck(SDL_Renderer* renderer, bool facingPlayer)
 {
 	SDL_Color colors[4] = { Red, Green, Blue, Yellow };
 	for (int j = 0; j < 4; j++)
@@ -44,12 +48,31 @@ void Deck::FillDeck(SDL_Renderer* renderer)
 				{ 5 + (i * 105), 5 + (j * 155), 0, 0 },
 				colors[j],
 				i,
-				true
+				facingPlayer
 			));
 		}
 	}
 	ShuffleDeck();
 }
+
+int Deck::GetDeckSize()
+{
+	return deck.size();
+}
+
+void Deck::FillDeckFromDeck(Deck* sourceDeck, bool shuffle, bool facingPlayer)
+{
+	for (int i = 0; i < sourceDeck->GetDeckSize(); i++)
+	{
+		deck.push(sourceDeck->DrawCard());
+		if (facingPlayer)
+			deck.top()->facingPlayer = true;
+	}
+
+	if (shuffle)
+		ShuffleDeck();
+}
+
 
 void Deck::ShuffleDeck()
 {
