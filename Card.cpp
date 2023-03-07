@@ -35,7 +35,7 @@ void Card::RenderCall(SDL_Renderer* renderer)
 	SDL_GetMouseState(&mousePos.x, &mousePos.y);
 	if (interactable && CheckMouseOver(mousePos))
 	{
-		location.y -= 100;
+		location.y -= 30;
 		zOrder = 10;
 	}
 	else if (!CheckMouseOver(mousePos) && zOrder == 10)
@@ -75,4 +75,16 @@ void Card::RenderCall(SDL_Renderer* renderer)
 void Card::FlipCard()
 {
 	facingPlayer = !facingPlayer;
+}
+
+bool Card::HasLinkWith(Card* card)
+{
+	bool colorMatch = card->color.r == color.r && 
+		card->color.g == color.g&&
+		card->color.b == color.b&&
+		card->color.a == color.a;
+
+	bool valueMatch = card->value == value;
+	
+	return colorMatch || valueMatch;
 }

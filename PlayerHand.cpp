@@ -27,14 +27,26 @@ void PlayerHand::DrawCard()
 	hand.back()->interactable = true;
 }
 
+
 void PlayerHand::MouseDown(MousePos mouse)
 {
-	for (Card* card : hand)
+	if (takingTurn)
 	{
-		if (card->CheckMouseOver(mouse))
+		for (Card* card : hand)
 		{
-			PlayCard(card);
-			break;
+			if (card->CheckMouseOver(mouse))
+			{
+				if (CanCardBePlayed(card))
+				{
+					PlayCard(card);
+					break;
+				}
+				else 
+				{
+					SDL_Log("Card could not be played");
+					break;
+				}
+			}
 		}
 	}
 }

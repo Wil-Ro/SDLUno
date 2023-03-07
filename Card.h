@@ -20,6 +20,8 @@ public:
 
 	void FlipCard();
 
+	bool HasLinkWith(Card* card);
+
 	void RenderCall(SDL_Renderer* renderer);
 
 	bool interactable = false;

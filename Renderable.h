@@ -22,6 +22,9 @@ public:
 	virtual void CenterTexture(SDL_Rect rect);
 	virtual void SetLocation(SDL_Rect rect);
 	virtual void ShiftLocation(SDL_Rect rect);
+	static SDL_Rect GetUncenteredRect(SDL_Rect rect);
+	SDL_Rect GetLocation();
+
 
 	int zOrder = 0;
 };

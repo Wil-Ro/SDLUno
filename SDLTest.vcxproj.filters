@@ -87,6 +87,15 @@
     <ClInclude Include="PlayerHand.h">
       <Filter>Header Files\Uno</Filter>
     </ClInclude>
+    <ClInclude Include="Character.h">
+      <Filter>Header Files\Uno</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerCharacter.h">
+      <Filter>Header Files\Uno</Filter>
+    </ClInclude>
+    <ClInclude Include="TurnIndicator.h">
+      <Filter>Header Files\Uno</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Uno.cpp">
@@ -140,6 +149,15 @@
     <ClCompile Include="PlayerHand.cpp">
       <Filter>Source Files\Uno</Filter>
     </ClCompile>
+    <ClCompile Include="Character.cpp">
+      <Filter>Source Files\Uno</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerCharacter.cpp">
+      <Filter>Source Files\Uno</Filter>
+    </ClCompile>
+    <ClCompile Include="TurnIndicator.cpp">
+      <Filter>Source Files\Uno</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="textures\player.png">
@@ -152,6 +170,9 @@
       <Filter>Source Files\Resource Files</Filter>
     </Image>
     <Image Include="textures\sliderNode.png">
+      <Filter>Source Files\Resource Files</Filter>
+    </Image>
+    <Image Include="textures\drawButton.png">
       <Filter>Source Files\Resource Files</Filter>
     </Image>
   </ItemGroup>

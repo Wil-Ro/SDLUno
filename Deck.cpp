@@ -1,28 +1,32 @@
 #include "Deck.h"
 
-Deck::Deck(SDL_Rect rect)
+Deck::Deck(SDL_Rect rect, std::function<void()> onEmpty)
 {
 	location = rect;
+	this->funcOnEmpty = onEmpty;
 }
 
-Card* Deck::DrawCard(bool flipCard)
+Card* Deck::DrawCard(bool facingPlayer)
 {
 	if (deck.size() <= 0)
-		return 0;
+		funcOnEmpty();
 	Card* tempCard = deck.top();
 	deck.pop();
 
-	if (flipCard)
-		tempCard->FlipCard();
+	tempCard->facingPlayer = facingPlayer;
 
 	return tempCard;
 }
 
-void Deck::PlayCard(Card* card, bool flipCard)
+void Deck::PlayCard(Card* card, bool facingPlayer)
 {
-	if (flipCard)
-		card->FlipCard();
+	card->facingPlayer = facingPlayer;
 	deck.push(card);
+}
+
+bool Deck::CanTakeCard(Card* card)
+{
+	return deck.top()->HasLinkWith(card);
 }
 
 // this is where we are rn
@@ -49,7 +53,7 @@ void Deck::FillDeck(SDL_Renderer* renderer, bool facingPlayer)
 				colors[j],
 				i,
 				facingPlayer
-			));
+			), facingPlayer);
 		}
 	}
 	ShuffleDeck();
@@ -60,13 +64,17 @@ int Deck::GetDeckSize()
 	return deck.size();
 }
 
+void Deck::SetFuncOnEmpty(std::function<void()> onEmpty)
+{
+	this->funcOnEmpty = onEmpty;
+}
+
 void Deck::FillDeckFromDeck(Deck* sourceDeck, bool shuffle, bool facingPlayer)
 {
 	for (int i = 0; i < sourceDeck->GetDeckSize(); i++)
 	{
 		deck.push(sourceDeck->DrawCard());
-		if (facingPlayer)
-			deck.top()->facingPlayer = true;
+		deck.top()->facingPlayer = facingPlayer;
 	}
 
 	if (shuffle)

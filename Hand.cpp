@@ -36,6 +36,11 @@ void Hand::PlayCard(Card* card)
 	// e.g. reverse or wildcard
 }
 
+bool Hand::CanCardBePlayed(Card* card)
+{
+	return playDeck->CanTakeCard(card);
+}
+
 void Hand::DrawCard()
 {
 	hand.push_back(drawDeck->DrawCard());

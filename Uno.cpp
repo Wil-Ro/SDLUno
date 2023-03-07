@@ -27,10 +27,6 @@ void Uno::RunGame()
 
 	FPSCounter fpsCounter(display->renderer, 2);
 
-	GameMaster gameMaster;
-
-	
-
 	Deck drawDeck({0, 0, 100, 150});
 	drawDeck.CenterTexture({ 0, 0, display->w(), display->h() });
 	drawDeck.FillDeck(display->renderer, false);
@@ -42,24 +38,23 @@ void Uno::RunGame()
 	drawDeck.ShiftLocation({-52 });
 	playDeck.ShiftLocation({ 52 });
 
-	PlayerHand testHand({30, display->h()-200, display->w()-30, 200}, &drawDeck, &playDeck);
-	testHand.FillHand();
-
-	Button drawButton({ 30, display->h() - 240, 100, 30 }, [&testHand](){testHand.DrawCard(); });
-	drawButton.AddTexture(display->renderer, "textures/quitButton.png");
-
 	display->AddRenderable(&drawDeck);
 	display->AddRenderable(&playDeck);
-	display->AddRenderable(&testHand);
-	display->AddRenderable(&drawButton);
 
-	handler.AddInteractable(&testHand);
+	GameMaster gameMaster(display, &handler, &playDeck, &drawDeck);
+
+	Button drawButton({ 20, 300, 150, 150 }, [&gameMaster]() {gameMaster.GivePlayerCard();});
+	drawButton.AddTexture(display->renderer, "textures/drawButton.png");
+	display->AddRenderable(&drawButton);
 	handler.AddInteractable(&drawButton);
+
 
 
 	while (true)
 	{
 		display->PrepareRender();
+
+		gameMaster.TakeTurn();
 
 		handler.Handle();
 
@@ -126,14 +121,23 @@ void Uno::CardTest(Display* display, int gap, int row)
 	}
 }
 
-
-// get gamemaster working, skip ai for now, just get it
-// taking a players turn, waiting a bit on ai and repeating
-
-// holy shit your code is awful, decks sizes arnt hardcoded rn
+// holy shit your code is awful, decks sizes are hardcoded rn
 // fix that
 // 100, 150
 
-// drawcard crashes when deck is empty as it return nullpointer
-
 // you can click through a button to click the thing beneath it, add z-priotity on clicking
+
+// I feel like this code needs cleaning up, once gamemaster is
+// working, do that
+
+/*
+// get gamemaster working, skip ai for now, just get it
+// taking a players turn, waiting a bit on ai and repeating
+
+
+*/
+
+
+/*
+I've realised Im misusing inheritance completely but fuck you future me, look back on this and cringe
+*/

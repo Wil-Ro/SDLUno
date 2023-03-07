@@ -2,7 +2,12 @@
 #include "Hand.h"
 class PlayerHand :public Hand
 {
+private:
+
+
 public:
+	bool takingTurn;
+
 	void PlayCard(Card* card);
 	void DrawCard();
 	void FillHand();
