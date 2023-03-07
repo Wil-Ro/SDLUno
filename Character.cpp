@@ -2,22 +2,35 @@
 
 void Character::TakeTurn()
 {
-	// will return true when turn has been taken
-
-	turnTaken = true;
+	if (SDL_GetTicks() > waitTime + 3000)
+	{
+		hand->PlayPlayableCard();
+		turnTaken = true;
+	}
 }
+
 
 void Character::StartTurn()
 {
+	waitTime = SDL_GetTicks();
 	turn = true;
 }
 
-void Character::EndTurn()
+void Character::ResetTurn()
 {
 	turn = false;
+	turnTaken = false;
 }
 
+void Character::ForceDrawCard()
+{
+	// just here to be overriden
+}
 
+int Character::GetHandSize()
+{
+	return hand->GetHandSize();
+}
 
 Character::Character(Deck* drawDeck, Deck* playDeck)
 {
@@ -30,6 +43,7 @@ Character::Character()
 {
 	return;
 }
+
 Character::~Character()
 {
 	delete hand;

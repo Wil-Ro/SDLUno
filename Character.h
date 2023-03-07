@@ -4,17 +4,24 @@
 
 class Character
 {
+private:
+	Uint32 waitTime = 0;
+
+	void PlayCard();
+
 protected:
 	Hand* hand;
 	bool turn = false;
-	
-	
 
 
 public:
 	virtual void TakeTurn();
 	virtual void StartTurn();
-	virtual void EndTurn();
+	virtual void ResetTurn();
+
+	virtual void ForceDrawCard();
+
+	virtual int GetHandSize();
 
 	Character(Deck* drawDeck, Deck* playDeck);
 	Character();

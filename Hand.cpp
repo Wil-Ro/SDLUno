@@ -24,6 +24,25 @@ void Hand::FillHand()
 	}
 }
 
+void Hand::PlayPlayableCard()
+{
+	for (Card* card : hand)
+	{
+		if (playDeck->CanTakeCard(card))
+		{
+			PlayCard(card);
+			return;
+		}
+	}
+	DrawCard();
+
+}
+
+int Hand::GetHandSize()
+{
+	return hand.size();
+}
+
 void Hand::PlayCard(Card* card)
 {
 	playDeck->PlayCard(card);

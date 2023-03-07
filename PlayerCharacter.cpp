@@ -2,8 +2,11 @@
 
 void PlayerCharacter::TakeTurn()
 {
-	// will return true when turn taken
-	turnTaken = true;
+	// deck will no longer be taking a turn if a card has been played
+	if (hand->takingTurn == false)
+	{
+		turnTaken = true;
+	}
 }
 
 void PlayerCharacter::StartTurn()
@@ -12,10 +15,22 @@ void PlayerCharacter::StartTurn()
 	hand->takingTurn = true;
 }
 
-void PlayerCharacter::EndTurn()
+void PlayerCharacter::ResetTurn()
 {
 	turn = false;
 	hand->takingTurn = false;
+	turnTaken = false;
+}
+
+int PlayerCharacter::GetHandSize()
+{
+	return hand->GetHandSize();
+}
+
+void PlayerCharacter::ForceDrawCard()
+{
+	hand->DrawCard();
+	turnTaken = true;
 }
 
 PlayerCharacter::PlayerCharacter(Display* display, Deck* drawDeck, Deck* playDeck, Hand** handReturn)

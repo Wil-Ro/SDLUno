@@ -25,6 +25,7 @@ public:
 	void RunProgram();
 	void RunMenu();
 	void RunGame();
+	void RunWinScreen(int winner = 0);
 
 	void CardTest(Display* display, int gap = 5, int row = 4);
 

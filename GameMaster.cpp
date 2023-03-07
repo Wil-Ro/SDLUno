@@ -1,16 +1,21 @@
 #include "GameMaster.h"
 
-GameMaster::GameMaster(Display* display, BaseEventHandler* handler, Deck* playDeck, Deck* drawDeck)
+// is it bad it has this many values? its a constructor so surely it will end up taking alot
+GameMaster::GameMaster(Display* display, BaseEventHandler* handler, Deck* playDeck, Deck* drawDeck, std::function<void(int)> winFunc)
 {
 	this->display = display;
 	this->playDeck = playDeck;
 	this->drawDeck = drawDeck;
+	this->winFunc = winFunc;
 	drawDeck->SetFuncOnEmpty([this](){OnEmptyDeck();});
 
 	// unhard code this eventually
 	Hand* playerHand = 0;
 	characters.push_back(new PlayerCharacter(display, drawDeck, playDeck, &playerHand));
 	characters.push_back(new Character(drawDeck, playDeck));
+
+	// first player set up to have their turn
+	characters[0]->StartTurn();
 
 	handler->AddInteractable(playerHand);
 
@@ -27,6 +32,12 @@ void GameMaster::TakeTurn()
 
 	// call turn, if it gets taken, move on to next one
 	characters[currentTurn]->TakeTurn();
+
+	if (characters[currentTurn]->GetHandSize() == 0)
+	{
+		winFunc(currentTurn);
+	}
+
 	if (characters[currentTurn]->turnTaken)
 		IncreaseTurn();
 }
@@ -36,10 +47,10 @@ void GameMaster::IncreaseTurn()
 	int previousTurn = currentTurn;
 
 	currentTurn++;
-	if (currentTurn > characters.size() - 1)
-		currentTurn = 0;
 
-	characters[previousTurn]->EndTurn();
+	currentTurn = currentTurn % characters.size();
+
+	characters[previousTurn]->ResetTurn();
 	characters[currentTurn]->StartTurn();
 
 	turnIndicator->setTurn(currentTurn);
@@ -56,9 +67,14 @@ void GameMaster::OnEmptyDeck()
 		SDL_LogWarn(0, "Deck refilled but left empty after refill");
 }
 
+// this will be called externally by the draw card button
 void GameMaster::GivePlayerCard()
 {
-	SDL_Log("DGADFGJADFHADFHAR FUCKKKKSGKSD");
+	// if its the players turn
+	if (currentTurn == 0) 
+	{
+		characters[0]->ForceDrawCard();
+	}
 }
 
 /*

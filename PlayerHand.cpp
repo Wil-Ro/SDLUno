@@ -27,6 +27,10 @@ void PlayerHand::DrawCard()
 	hand.back()->interactable = true;
 }
 
+int PlayerHand::GetHandSize()
+{
+	return hand.size();
+}
 
 void PlayerHand::MouseDown(MousePos mouse)
 {
@@ -39,6 +43,7 @@ void PlayerHand::MouseDown(MousePos mouse)
 				if (CanCardBePlayed(card))
 				{
 					PlayCard(card);
+					takingTurn = false;
 					break;
 				}
 				else 

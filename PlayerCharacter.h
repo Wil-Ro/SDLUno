@@ -9,7 +9,11 @@ private:
 public:
 	void TakeTurn();
 	void StartTurn();
-	void EndTurn();
+	void ResetTurn();
+
+	void ForceDrawCard();
+
+	int GetHandSize();
+
 	PlayerCharacter(Display* display, Deck* drawDeck, Deck* playDeck, Hand** handReturn);
 };
-

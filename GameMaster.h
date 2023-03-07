@@ -17,7 +17,7 @@ their render function.
 class GameMaster
 {
 public:
-	GameMaster(Display* display, BaseEventHandler* handler, Deck* playDeck, Deck* drawDeck);
+	GameMaster(Display* display, BaseEventHandler* handler, Deck* playDeck, Deck* drawDeck, std::function<void(int)> winFunc);
 	void TakeTurn();
 	void GivePlayerCard();
 
@@ -28,6 +28,8 @@ private:
 
 	int currentTurn = 0;
 	std::vector<Character*> characters;
+
+	std::function<void(int)> winFunc;
 
 	Deck* playDeck;
 	Deck* drawDeck;

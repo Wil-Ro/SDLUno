@@ -16,6 +16,7 @@ void Uno::RunProgram()
 {
 	//RunMenu();
 	RunGame();
+	//RunWinScreen(0);
 }
 
 
@@ -41,7 +42,7 @@ void Uno::RunGame()
 	display->AddRenderable(&drawDeck);
 	display->AddRenderable(&playDeck);
 
-	GameMaster gameMaster(display, &handler, &playDeck, &drawDeck);
+	GameMaster gameMaster(display, &handler, &playDeck, &drawDeck, [this](int winner){this->RunWinScreen(winner);});
 
 	Button drawButton({ 20, 300, 150, 150 }, [&gameMaster]() {gameMaster.GivePlayerCard();});
 	drawButton.AddTexture(display->renderer, "textures/drawButton.png");
@@ -95,6 +96,33 @@ void Uno::RunMenu()
 
 		SDL_Delay(10);
 	}
+	return;
+}
+
+void Uno::RunWinScreen(int winner)
+{
+	display->ClearRenderables();
+	BaseEventHandler handler;
+
+	std::string winTextContent = winner == 0 ? "You Win!" : "You Lost!";
+
+	Text winText(display->renderer, winTextContent.c_str(), 80, {0, 0, 0, 0}, {255, 255, 255, 255});
+	winText.CenterTexture({ 0, 0, display->w(), display->h() });
+	display->AddRenderable(&winText);
+
+	while (true)
+	{
+		display->PrepareRender();
+
+		handler.Handle();
+
+		display->RenderAll();
+
+		display->ProcessRender();
+
+		SDL_Delay(10);
+	}
+
 	return;
 }
 

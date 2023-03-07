@@ -21,6 +21,10 @@ public:
 	void FillHand();
 	bool CanCardBePlayed(Card* card);
 
+	void PlayPlayableCard();
+
+	virtual int GetHandSize();
+
 	void RenderCall(SDL_Renderer* renderer);
 protected:
 	std::vector<Card*> hand;
