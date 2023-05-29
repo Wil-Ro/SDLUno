@@ -96,6 +96,12 @@
     <ClInclude Include="TurnIndicator.h">
       <Filter>Header Files\Uno</Filter>
     </ClInclude>
+    <ClInclude Include="CharIndicator.h">
+      <Filter>Header Files\Uno</Filter>
+    </ClInclude>
+    <ClInclude Include="CharIndicatorContainer.h">
+      <Filter>Header Files\Uno</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Uno.cpp">
@@ -158,6 +164,12 @@
     <ClCompile Include="TurnIndicator.cpp">
       <Filter>Source Files\Uno</Filter>
     </ClCompile>
+    <ClCompile Include="CharIndicator.cpp">
+      <Filter>Source Files\Uno</Filter>
+    </ClCompile>
+    <ClCompile Include="CharIndicatorContainer.cpp">
+      <Filter>Source Files\Uno</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="textures\player.png">
@@ -173,6 +185,12 @@
       <Filter>Source Files\Resource Files</Filter>
     </Image>
     <Image Include="textures\drawButton.png">
+      <Filter>Source Files\Resource Files</Filter>
+    </Image>
+    <Image Include="textures\playerIcon.png">
+      <Filter>Source Files\Resource Files</Filter>
+    </Image>
+    <Image Include="textures\unoCardBack.png">
       <Filter>Source Files\Resource Files</Filter>
     </Image>
   </ItemGroup>

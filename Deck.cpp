@@ -1,9 +1,15 @@
 #include "Deck.h"
 
-Deck::Deck(SDL_Rect rect, std::function<void()> onEmpty)
+Deck::Deck(SDL_Rect rect)
+{
+	location = rect;
+}
+
+Deck::Deck(SDL_Rect rect, std::function<void()> onEmpty, std::function<void(Card* card)> processCard)
 {
 	location = rect;
 	this->funcOnEmpty = onEmpty;
+	this->funcProcessCard = processCard;
 }
 
 Card* Deck::DrawCard(bool facingPlayer)
@@ -22,6 +28,11 @@ void Deck::PlayCard(Card* card, bool facingPlayer)
 {
 	card->facingPlayer = facingPlayer;
 	deck.push(card);
+
+	// any card above 9 is a special card, GameMaster deals with these
+	//TODO make sure card effects done trigger when deck is first filled using this method
+	if (funcProcessCard != NULL &&  card->GetValue() > 9)
+		funcProcessCard(card);
 }
 
 bool Deck::CanTakeCard(Card* card)
@@ -45,13 +56,13 @@ void Deck::FillDeck(SDL_Renderer* renderer, bool facingPlayer)
 	SDL_Color colors[4] = { Red, Green, Blue, Yellow };
 	for (int j = 0; j < 4; j++)
 	{
-		for (int i = 0; i <= 10; i++)
+		for (int i = 0; i <= 12; i++)
 		{
 			PlayCard(new Card(
 				renderer,
 				{ 5 + (i * 105), 5 + (j * 155), 0, 0 },
 				colors[j],
-				i,
+				i+1,
 				facingPlayer
 			), facingPlayer);
 		}
@@ -67,6 +78,11 @@ int Deck::GetDeckSize()
 void Deck::SetFuncOnEmpty(std::function<void()> onEmpty)
 {
 	this->funcOnEmpty = onEmpty;
+}
+
+void Deck::SetFuncProcessCard(std::function<void(Card* card)> processCard)
+{
+	this->funcProcessCard = processCard;
 }
 
 void Deck::FillDeckFromDeck(Deck* sourceDeck, bool shuffle, bool facingPlayer)

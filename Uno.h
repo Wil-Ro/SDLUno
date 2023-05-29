@@ -8,6 +8,8 @@
 #include "Deck.h"
 #include "Hand.h"
 #include "PlayerHand.h"
+#include "CharIndicator.h"
+#include "CharIndicatorContainer.h"
 
 #include "FPSCounter.h"
 

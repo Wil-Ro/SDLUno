@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Rosia\source\repos\SDLTest\packages\sdl2.nuget.2.0.22\build\native\include\</FILEPATH>
+      <FILENAME>SDL_rect.h</FILENAME>
+      <LINE>255</LINE>
+      <COLUMN>28</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>SDL_FRectEqualsEpsilon</FUNCTION>
+    <DECORATED>SDL_FRectEqualsEpsilon</DECORATED>
+    <FUNCLINE>252</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Rosia\source\repos\SDLTest\packages\sdl2.nuget.2.0.22\build\native\include\</FILEPATH>
+      <FILENAME>SDL_rect.h</FILENAME>
+      <LINE>256</LINE>
+      <COLUMN>27</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>SDL_FRectEqualsEpsilon</FUNCTION>
+    <DECORATED>SDL_FRectEqualsEpsilon</DECORATED>
+    <FUNCLINE>252</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Rosia\source\repos\SDLTest\packages\sdl2.nuget.2.0.22\build\native\include\</FILEPATH>
+      <FILENAME>SDL_rect.h</FILENAME>
+      <LINE>257</LINE>
+      <COLUMN>27</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>SDL_FRectEqualsEpsilon</FUNCTION>
+    <DECORATED>SDL_FRectEqualsEpsilon</DECORATED>
+    <FUNCLINE>252</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Rosia\source\repos\SDLTest\packages\sdl2.nuget.2.0.22\build\native\include\</FILEPATH>
+      <FILENAME>SDL_rect.h</FILENAME>
+      <LINE>258</LINE>
+      <COLUMN>27</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>SDL_FRectEqualsEpsilon</FUNCTION>
+    <DECORATED>SDL_FRectEqualsEpsilon</DECORATED>
+    <FUNCLINE>252</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Rosia\source\repos\SDLTest\</FILEPATH>
+      <FILENAME>Renderable.h</FILENAME>
+      <LINE>28</LINE>
+      <COLUMN>0</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Renderable::texture' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Renderable::{ctor}</FUNCTION>
+    <DECORATED>??0Renderable@@QEAA@XZ</DECORATED>
+    <FUNCLINE>28</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Renderable::texture</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Rosia\source\repos\SDLTest\</FILEPATH>
+      <FILENAME>Renderable.h</FILENAME>
+      <LINE>28</LINE>
+      <COLUMN>0</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Renderable::location' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Renderable::{ctor}</FUNCTION>
+    <DECORATED>??0Renderable@@QEAA@XZ</DECORATED>
+    <FUNCLINE>28</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Renderable::location</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

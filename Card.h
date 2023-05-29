@@ -3,9 +3,18 @@
 #include "Text.h"
 #include <SDL_image.h>
 
-// ###IMPORTANT INFO###
-// card must always have cardBack defined before use, normally
-// at the top of main before the renderloop
+#define PLUS_TWO_CARD 10
+#define PLUS_FOUR_CARD 11
+#define REVERSE_CARD 12
+#define WILD_CARD_CARD 13
+
+/*
+1-9 is normal values
+10 - +2
+11 - +4
+12 - reverse
+13 - wild card
+*/
 
 const SDL_Color Red{ 219, 96, 96, 255 };
 const SDL_Color Yellow{ 219, 213, 96, 255 };
@@ -24,6 +33,8 @@ public:
 
 	void RenderCall(SDL_Renderer* renderer);
 
+	int GetValue();
+
 	bool interactable = false;
 	bool facingPlayer = true;
 
@@ -34,6 +45,8 @@ private:
 	Text* text;
 
 	SDL_Texture* cardBack;
+	SDL_Texture* reverseIcon;
+	SDL_Texture* colourWheelIcon;
 	
 };
 

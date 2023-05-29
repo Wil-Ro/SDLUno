@@ -1,18 +1,24 @@
 #include "GameMaster.h"
 
 // is it bad it has this many values? its a constructor so surely it will end up taking alot
-GameMaster::GameMaster(Display* display, BaseEventHandler* handler, Deck* playDeck, Deck* drawDeck, std::function<void(int)> winFunc)
+GameMaster::GameMaster(Display* display, BaseEventHandler* handler, Deck* playDeck, Deck* drawDeck, int numOfCharacters)
 {
 	this->display = display;
 	this->playDeck = playDeck;
 	this->drawDeck = drawDeck;
-	this->winFunc = winFunc;
 	drawDeck->SetFuncOnEmpty([this](){OnEmptyDeck();});
+	playDeck->SetFuncProcessCard([this](Card* card){ProcessCard(card);});
+
+	drawDeck->FillDeck(display->renderer, false);
+	playDeck->PlayCard(drawDeck->DrawCard());
 
 	// unhard code this eventually
 	Hand* playerHand = 0;
 	characters.push_back(new PlayerCharacter(display, drawDeck, playDeck, &playerHand));
-	characters.push_back(new Character(drawDeck, playDeck));
+	for (int i = 0; i < numOfCharacters; i++)
+	{
+		characters.push_back(new Character(drawDeck, playDeck));
+	}
 
 	// first player set up to have their turn
 	characters[0]->StartTurn();
@@ -37,24 +43,25 @@ void GameMaster::TakeTurn()
 	{
 		winFunc(currentTurn);
 	}
-
-	if (characters[currentTurn]->turnTaken)
-		IncreaseTurn();
 }
+
 
 void GameMaster::IncreaseTurn()
 {
-	int previousTurn = currentTurn;
+	if (characters[currentTurn]->turnTaken)
+	{
+		int previousTurn = currentTurn;
 
-	currentTurn++;
+		currentTurn += turnChange;
 
-	currentTurn = currentTurn % characters.size();
+		currentTurn = currentTurn % characters.size();
 
-	characters[previousTurn]->ResetTurn();
-	characters[currentTurn]->StartTurn();
+		characters[previousTurn]->ResetTurn();
+		characters[currentTurn]->StartTurn();
 
-	turnIndicator->setTurn(currentTurn);
-	// we could do this without previousTurn but this feels nicer to read?
+		turnIndicator->setTurn(currentTurn);
+		newTurnFunc(currentTurn, previousTurn);
+	}
 }
 
 void GameMaster::OnEmptyDeck()
@@ -77,7 +84,60 @@ void GameMaster::GivePlayerCard()
 	}
 }
 
-/*
-we give the game master a function to be called publically by the draw button???
-this would check the players turn and if it is theirs it would give them a card and end their turn
-*/
+
+int GameMaster::GetTurn()
+{
+	return currentTurn;
+}
+
+int GameMaster::GetNumberOfPlayers()
+{
+	return characters.size();
+}
+
+int GameMaster::GetPlayerHandSize(int player)
+{
+	return characters[player]->GetHandSize();
+}
+
+void GameMaster::SetNewTurnFunc(std::function<void(int, int)> func)
+{
+	newTurnFunc = func;
+}
+void GameMaster::SetWinFunc(std::function<void(int)> func)
+{
+	winFunc = func;
+}
+
+void GameMaster::ChangeTurnOrder()
+{
+	SDL_Log("OFDHDFGD");
+	if (turnChange == 1)
+	{
+		turnChange = -1;
+	}
+	else
+	{
+		turnChange = 1;
+	}
+}
+
+void GameMaster::ProcessCard(Card* card)
+{
+	switch (card->GetValue())
+	{
+	case PLUS_TWO_CARD:
+		SDL_Log("Player played plus two card");
+		break;
+	case PLUS_FOUR_CARD:
+		SDL_Log("Player played plus four card");
+		break;
+	case REVERSE_CARD:
+		ChangeTurnOrder();
+		break;
+	case WILD_CARD_CARD:
+		SDL_Log("Player played wild card");
+		break;
+	} //TODO THIS, also make wildcards render
+}
+

@@ -2,7 +2,7 @@
 
 void Character::TakeTurn()
 {
-	if (SDL_GetTicks() > waitTime + 3000)
+	if (SDL_GetTicks() > waitCache + waitTime)
 	{
 		hand->PlayPlayableCard();
 		turnTaken = true;
@@ -12,7 +12,7 @@ void Character::TakeTurn()
 
 void Character::StartTurn()
 {
-	waitTime = SDL_GetTicks();
+	waitCache = SDL_GetTicks();
 	turn = true;
 }
 

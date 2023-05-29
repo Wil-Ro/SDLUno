@@ -30,11 +30,9 @@ void Uno::RunGame()
 
 	Deck drawDeck({0, 0, 100, 150});
 	drawDeck.CenterTexture({ 0, 0, display->w(), display->h() });
-	drawDeck.FillDeck(display->renderer, false);
 
 	Deck playDeck({ 0, 0, 100, 150 });
 	playDeck.CenterTexture({0, 0, display->w(), display->h()});
-	playDeck.PlayCard(drawDeck.DrawCard());
 
 	drawDeck.ShiftLocation({-52 });
 	playDeck.ShiftLocation({ 52 });
@@ -42,7 +40,14 @@ void Uno::RunGame()
 	display->AddRenderable(&drawDeck);
 	display->AddRenderable(&playDeck);
 
-	GameMaster gameMaster(display, &handler, &playDeck, &drawDeck, [this](int winner){this->RunWinScreen(winner);});
+	GameMaster gameMaster(display, &handler, &playDeck, &drawDeck, 4);
+	gameMaster.SetWinFunc([this](int winner) {this->RunWinScreen(winner); });
+	
+
+	CharIndicatorContainer enemies(&gameMaster, display->renderer, { 0, 0, display->w(), display->h()/3});
+	display->AddRenderable(&enemies);
+
+	gameMaster.SetNewTurnFunc([&enemies](int character, int prevCharacter) {enemies.UpdateCharIndicators(character, prevCharacter);});
 
 	Button drawButton({ 20, 300, 150, 150 }, [&gameMaster]() {gameMaster.GivePlayerCard();});
 	drawButton.AddTexture(display->renderer, "textures/drawButton.png");
@@ -50,12 +55,14 @@ void Uno::RunGame()
 	handler.AddInteractable(&drawButton);
 
 
-
 	while (true)
 	{
 		display->PrepareRender();
 
+		
 		gameMaster.TakeTurn();
+		gameMaster.IncreaseTurn();
+		
 
 		handler.Handle();
 

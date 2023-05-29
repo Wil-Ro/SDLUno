@@ -5,7 +5,8 @@
 class Character
 {
 private:
-	Uint32 waitTime = 0;
+	Uint32 waitCache = 0;
+	Uint32 waitTime = 1000;
 
 	void PlayCard();
 

@@ -7,6 +7,8 @@ Card::Card(SDL_Renderer* renderer, SDL_Rect rect, SDL_Color color, int value, bo
 {
 	AddTexture(renderer, "textures/unoCard.png");
 	cardBack = IMG_LoadTexture(renderer, "textures/unoCardBack.png");
+	reverseIcon = IMG_LoadTexture(renderer, "textures/unoIconReverse.png");
+	colourWheelIcon = IMG_LoadTexture(renderer, "textures/unoIconColourWheel.png");
 
 	location = rect;
 	SDL_QueryTexture(texture, NULL, NULL, &location.w, &location.h);
@@ -18,7 +20,18 @@ Card::Card(SDL_Renderer* renderer, SDL_Rect rect, SDL_Color color, int value, bo
 	this->facingPlayer = facingPlayer;
 	this->interactable = interactable;
 
-	text = new Text(renderer, std::to_string(value).c_str(), 50, location, {255, 255, 255, 255});
+	std::string cardVal = std::to_string(value).c_str();
+	switch (value)
+	{
+	case 10:
+		cardVal = "+2";
+		break;
+	case 11:
+		cardVal = "+4";
+		break;
+	}
+
+	text = new Text(renderer, cardVal.c_str(), 50, location, {255, 255, 255, 255});
 	text->CenterTexture(location);
 }
 
@@ -38,17 +51,14 @@ void Card::RenderCall(SDL_Renderer* renderer)
 		location.y -= 30;
 		zOrder = 10;
 	}
-	else if (!CheckMouseOver(mousePos) && zOrder == 10)
+	else if (CheckMouseOver(mousePos) && zOrder == 10)
 	{
 		zOrder = 0;
 	}
 	
 	if (!facingPlayer)
 	{
-		if (SDL_RenderCopy(renderer, cardBack, NULL, &location) != 0)
-		{
-			SDL_LogError(0, "Failed to Render");
-		}
+		SDL_RenderCopy(renderer, cardBack, NULL, &location);
 		return;
 	}
 
@@ -67,9 +77,24 @@ void Card::RenderCall(SDL_Renderer* renderer)
 	{
 		SDL_LogError(0, "Failed to Render");
 	}
-	// set text location incase card has been moved
-	text->CenterTexture(location);
-	text->RenderCall(renderer);
+
+	if (value == 12)
+	{
+		SDL_Rect iconLocation = {
+			location.x + location.w / 8,
+			location.y + location.h / 4,
+			location.h / 2,
+			location.h / 2
+		};
+
+		SDL_RenderCopy(renderer, reverseIcon, NULL, &iconLocation);
+	}
+	else
+	{
+		// set text location incase card has been moved
+		text->CenterTexture(location);
+		text->RenderCall(renderer);
+	}
 }
 
 void Card::FlipCard()
@@ -87,4 +112,9 @@ bool Card::HasLinkWith(Card* card)
 	bool valueMatch = card->value == value;
 	
 	return colorMatch || valueMatch;
+}
+
+int Card::GetValue()
+{
+	return value;
 }

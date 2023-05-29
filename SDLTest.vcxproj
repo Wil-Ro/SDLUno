@@ -134,6 +134,8 @@
     <ClInclude Include="BaseStructs.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Card.h" />
+    <ClInclude Include="CharIndicator.h" />
+    <ClInclude Include="CharIndicatorContainer.h" />
     <ClInclude Include="Deck.h" />
     <ClInclude Include="FPSCounter.h" />
     <ClInclude Include="GameMaster.h" />
@@ -155,6 +157,8 @@
     <ClCompile Include="BaseEventHandler.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Card.cpp" />
+    <ClCompile Include="CharIndicator.cpp" />
+    <ClCompile Include="CharIndicatorContainer.cpp" />
     <ClCompile Include="Deck.cpp" />
     <ClCompile Include="FPSCounter.cpp" />
     <ClCompile Include="GameMaster.cpp" />
@@ -177,8 +181,10 @@
     <Image Include="textures\bullet.png" />
     <Image Include="textures\drawButton.png" />
     <Image Include="textures\player.png" />
+    <Image Include="textures\playerIcon.png" />
     <Image Include="textures\quitButton.png" />
     <Image Include="textures\sliderNode.png" />
+    <Image Include="textures\unoCardBack.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

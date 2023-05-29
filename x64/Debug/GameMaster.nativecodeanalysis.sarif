@@ -1,0 +1,679 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Rosia/source/repos/SDLTest/packages/sdl2.nuget.2.0.22/build/native/include/SDL_rect.h"
+                },
+                "region": {
+                  "startLine": 255,
+                  "startColumn": 24,
+                  "endLine": 255,
+                  "endColumn": 32
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "SDL_FRectEqualsEpsilon",
+                  "decoratedName": "SDL_FRectEqualsEpsilon",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Rosia/source/repos/SDLTest/packages/sdl2.nuget.2.0.22/build/native/include/SDL_rect.h"
+                },
+                "region": {
+                  "startLine": 256,
+                  "startColumn": 23,
+                  "endLine": 256,
+                  "endColumn": 31
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "SDL_FRectEqualsEpsilon",
+                  "decoratedName": "SDL_FRectEqualsEpsilon",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Rosia/source/repos/SDLTest/packages/sdl2.nuget.2.0.22/build/native/include/SDL_rect.h"
+                },
+                "region": {
+                  "startLine": 257,
+                  "startColumn": 23,
+                  "endLine": 257,
+                  "endColumn": 31
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "SDL_FRectEqualsEpsilon",
+                  "decoratedName": "SDL_FRectEqualsEpsilon",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/Rosia/source/repos/SDLTest/packages/sdl2.nuget.2.0.22/build/native/include/SDL_rect.h"
+                },
+                "region": {
+                  "startLine": 258,
+                  "startColumn": 23,
+                  "endLine": 258,
+                  "endColumn": 31
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "SDL_FRectEqualsEpsilon",
+                  "decoratedName": "SDL_FRectEqualsEpsilon",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.33.31630.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///C:/Users/Rosia/source/repos/SDLTest/packages/sdl2.nuget.2.0.22/build/native/include/SDL_rect.h"
+          },
+          "roles": [
+            "resultFile"
+          ],
+          "hashes": {
+            "sha-256": "370e15bae1fab1f5c9e92985000c5691764dc294b233ddccd0d843726ac835fc"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/gamemaster.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "sha-256": "c8bee9db6ff0819c991a6018157841e6ab4de3ed5cb5d21190b59d0dc87d1744"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/gamemaster.h"
+          },
+          "hashes": {
+            "sha-256": "51b21b4a3079b6f210188c6663beb1810d8563fc4830f5865fd61ef9dd542acb"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/baseeventhandler.h"
+          },
+          "hashes": {
+            "sha-256": "86976059670d805b63757fbedd5c0d92d12f7643c6eb5062b12f05d6a27a3de8"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl.h"
+          },
+          "hashes": {
+            "sha-256": "f4d6b0cd180b0e6e1423fac314a1bef93f0f9d4f21891e496d8c9de95dccc7b9"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_main.h"
+          },
+          "hashes": {
+            "sha-256": "035da815471872fae30fbc7df5e9278e8a15c595bb9e4bb50bd0af946edd006c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_stdinc.h"
+          },
+          "hashes": {
+            "sha-256": "ea877a3ad2f21f0cdd575a57db3af82b371eb7423c34a7e20742aff8c97af46a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_config.h"
+          },
+          "hashes": {
+            "sha-256": "21e9285bf607a5b0d4fc5a00418ad79e94bfc0ffecfc1a563ec7dc6fb97774f0"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_platform.h"
+          },
+          "hashes": {
+            "sha-256": "d876860250fe8df6eb49051b761da292130920881a4b26586381e3f10c3c9caf"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/begin_code.h"
+          },
+          "hashes": {
+            "sha-256": "28375476c52d6319a8d19c902cdc0e1ee5932856899ee8dca1e17a79dce9e121"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/close_code.h"
+          },
+          "hashes": {
+            "sha-256": "f49100335e21a43455ead0e742f7c816d0494171ce10948e3637b9abf3ca953a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_assert.h"
+          },
+          "hashes": {
+            "sha-256": "537353fa26102f232ec8bf02f6c44ec8611f9d66794860e75b6cef3f17d600a1"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_atomic.h"
+          },
+          "hashes": {
+            "sha-256": "d9f667d640581e1a0a4685b03541e5096103629d4a1cc489a427e612a8f8d793"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_audio.h"
+          },
+          "hashes": {
+            "sha-256": "7598b50ec4f5aea30109068cca25088345612f60629a2db5bd3a195521f3a078"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_error.h"
+          },
+          "hashes": {
+            "sha-256": "470f04a4562305966d7705b774c1e85fb6e9e8ce4c136f2669bd4cc2cc6c922f"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_endian.h"
+          },
+          "hashes": {
+            "sha-256": "50276f51b0382d2a8df00832e7f43af9f9629d1c20e9eef87ae92607cb13e845"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_mutex.h"
+          },
+          "hashes": {
+            "sha-256": "3a656b533b97a5527a89fcfbb709c37024f7ed293d942a6a3f9ce068273f42d0"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_thread.h"
+          },
+          "hashes": {
+            "sha-256": "799af54b869db2d7c739ab4dee8865525f8b9d537e857527edecc1897d9a7294"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_rwops.h"
+          },
+          "hashes": {
+            "sha-256": "3f844c7425c5ffd2bde779ba43e7aa557442915cd5015fa15db3a87b77b803a3"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_clipboard.h"
+          },
+          "hashes": {
+            "sha-256": "f632d628d78712a4ab23d9159e1c2dc5e91b1fc784c1aeb859d27eadce3044e6"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_cpuinfo.h"
+          },
+          "hashes": {
+            "sha-256": "3a8d6a5710aaf9d93193d9447f4bf4ab03e68db09e2c04cb1f85711b6c9b3108"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_events.h"
+          },
+          "hashes": {
+            "sha-256": "bc612b1863c03b33f56682116164196960bb6cfd378da80e44768525fb541222"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_video.h"
+          },
+          "hashes": {
+            "sha-256": "533bf635c1d6cec5412951095a520fcc41aed2148b4083fc30cf3137df0b3701"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_pixels.h"
+          },
+          "hashes": {
+            "sha-256": "b1ea3870abcf21584a520e41cdca0e32d957b87c0afb8cdafac95dda80e1810c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_surface.h"
+          },
+          "hashes": {
+            "sha-256": "939f0134665cf7775bbf23f8a323041cbecb4cc0a77041d29bb11d711f3bf30e"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_blendmode.h"
+          },
+          "hashes": {
+            "sha-256": "64082c3f9c6a5d08ac143004dc3591586bd498fdf443416a2ad5e153d8fd3da8"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_keyboard.h"
+          },
+          "hashes": {
+            "sha-256": "2ed89a1b495581c1f6f5efa8b3a706c1e58a6e5af15c555be04bcff7f9335563"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_keycode.h"
+          },
+          "hashes": {
+            "sha-256": "6e94ee3828d8ea54507221fd00cc2e5316fad77522d067ca88d3d368e7e21023"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_scancode.h"
+          },
+          "hashes": {
+            "sha-256": "38bdd13500f65fdebe931b14d32447e1aa52c7fb4a862dc1c51979d8e1406129"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_mouse.h"
+          },
+          "hashes": {
+            "sha-256": "9685fd425fc4acd4af0824862b56949eb8293c44139f6e8833a8e1b0457ff7a3"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_joystick.h"
+          },
+          "hashes": {
+            "sha-256": "d7efa701d2ea95e8368af94b2ec90ba2be9926de86fdadb3d71690c5da412386"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_gamecontroller.h"
+          },
+          "hashes": {
+            "sha-256": "a2386cb1abf3b3257ac2f9c67c12ae3c6c93c6bd0c01983e54319603c1a68a57"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_sensor.h"
+          },
+          "hashes": {
+            "sha-256": "5e66263151bad5fce025f8fbee6191393cb0b8c5ac36044b1b9f7b6e1cfea5e6"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_quit.h"
+          },
+          "hashes": {
+            "sha-256": "a2fd94238708d48b3262af2a93bfff470ae663939b021a7b2a4453d1ca7c5d53"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_gesture.h"
+          },
+          "hashes": {
+            "sha-256": "9fc58622bc0194b0d6766ea56fe32db47c0b199f35b007e370d1d0a88012acf8"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_touch.h"
+          },
+          "hashes": {
+            "sha-256": "e132fa6288a6f73589a38c5729977f319b2b508acd52f95916912ea0cb4e2255"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_filesystem.h"
+          },
+          "hashes": {
+            "sha-256": "79488f1cca5904faa69c6dfeb8efe8f6360ded8eee103f1611ba7e9bacdfcfed"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_haptic.h"
+          },
+          "hashes": {
+            "sha-256": "ae535dfd03e7d2d52435965de6eb5cd200157fd721200ecc3a401b0cec0f65ad"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_hidapi.h"
+          },
+          "hashes": {
+            "sha-256": "f13f679c630c3910d63982d3ff44a9ab0b17892da2a93cfc2a1bf93d65a7b1c4"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_hints.h"
+          },
+          "hashes": {
+            "sha-256": "697c3b9c421cb7b5530938ee24d88d35147a93f22dc7e3d164ba8d12d4ca1b65"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_loadso.h"
+          },
+          "hashes": {
+            "sha-256": "8e4d0357ad6c8069cd7de68201736065500a8c7b2384e7fd65d4ee4d160091cb"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_log.h"
+          },
+          "hashes": {
+            "sha-256": "5b1827929c323cdfd2e7dca4458fb286d3d39f04bd2b4e1c200567ba788efb58"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_messagebox.h"
+          },
+          "hashes": {
+            "sha-256": "9f8e01efd07295e6d0f4ef3350bd217ada6996591c2022b7f9163fbfdfe67eef"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_metal.h"
+          },
+          "hashes": {
+            "sha-256": "8c80acbb8c88af9b544c0d79c77073600db9c4aff7c08ccc6af541cccd91cc8c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_power.h"
+          },
+          "hashes": {
+            "sha-256": "93ae2fad778ff057a582f4940cc83864b4991aeaeaeb5c94f3bc30ebfe6633ef"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_render.h"
+          },
+          "hashes": {
+            "sha-256": "38b740284b25e7e7687d8e6419270bd121f6d909b9ead7a74aafebef9607265c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_shape.h"
+          },
+          "hashes": {
+            "sha-256": "1d35455675397d3dcd27bef13c62ec4c4c40b2211c27d589af23bfccb6492fa7"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_system.h"
+          },
+          "hashes": {
+            "sha-256": "5036288920152c77903b86f611df919d914b92510902c75d074c3005bae5557c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_timer.h"
+          },
+          "hashes": {
+            "sha-256": "190af3b762fd203ce25c17eda9fb31d698bd75957f59d4ce7cc21671e8a2403a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_version.h"
+          },
+          "hashes": {
+            "sha-256": "8b74de2cc84d7ab1cf194719ee21dbc5f0620c7d08c6d06f7a3c9959676d90e5"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_locale.h"
+          },
+          "hashes": {
+            "sha-256": "9919ace207fad203b24ac916c92b529f74088ed14c797760a32e05b76c6058ec"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2.nuget.2.0.22/build/native/include/sdl_misc.h"
+          },
+          "hashes": {
+            "sha-256": "ee696c2a1135d0110ce6c9efe0d67f9a9e8ec400f6f00c2b53247995193f96ec"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/button.h"
+          },
+          "hashes": {
+            "sha-256": "30ef9fc4f246bae5c3087fed8d7785cd56029b829d00a1aed2ec9a67a585250a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/basestructs.h"
+          },
+          "hashes": {
+            "sha-256": "3abf7771f1b431748c108ed91cfc02ec89b265aeeedb8270cd288645145400cc"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/interactable.h"
+          },
+          "hashes": {
+            "sha-256": "86136e966eb3e0f313fd9df497212951e077fc8c1e1d407f08b42b99b20075a1"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/renderable.h"
+          },
+          "hashes": {
+            "sha-256": "47f49f6b469a37ca07ffdc9fe53adc5b6f5fee055ac92f76db12471a5ed86f2e"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2_image.nuget.2.6.1/build/native/include/sdl_image.h"
+          },
+          "hashes": {
+            "sha-256": "0f6d98326364b872664bafe305f7559ed278f0c08b29f7bf64283d7457bf7e79"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/display.h"
+          },
+          "hashes": {
+            "sha-256": "8601c60a3272174aee79c3682802b1d4243716cd93149982c99418e29ac0b367"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/packages/sdl2_ttf.nuget.2.20.0/build/native/include/sdl_ttf.h"
+          },
+          "hashes": {
+            "sha-256": "39e7dad4e0fcf940abd85cde5ccdada746cf7ccc83bda442386cf2b675b4a041"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/deck.h"
+          },
+          "hashes": {
+            "sha-256": "5a063d45d19f7a84be73d81b0b0f9da7d223c3f30e5676545de5359aac3ec827"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/card.h"
+          },
+          "hashes": {
+            "sha-256": "36767924a6364570f3383f63b3f6ce1440fd68a1dd08283d77c0d9ee5502f766"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/text.h"
+          },
+          "hashes": {
+            "sha-256": "5c56453a10d88ff5fd3c810a66bb0c2ea1d96e79c008f4c12aec23c7914debce"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/character.h"
+          },
+          "hashes": {
+            "sha-256": "a02bdbefeac583e52dfabc1e27d8580f9f50045c8d0e9f5d732965dab08c9cb4"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/hand.h"
+          },
+          "hashes": {
+            "sha-256": "35083fe7f8c7f49689c91f8dc719e85892d3bdec2f3223c6cf75b0edc3dc2812"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/playerhand.h"
+          },
+          "hashes": {
+            "sha-256": "0d35f85b76b3e4cb01bc804c88f2d08a9f0afe3e185da5f63ac8b4cea59c8bb5"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/playercharacter.h"
+          },
+          "hashes": {
+            "sha-256": "c703fe808112a127b80b08db6f89a03377f33494712e4ff507c66685619674db"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/rosia/source/repos/sdltest/turnindicator.h"
+          },
+          "hashes": {
+            "sha-256": "2532e9ade131b190d79479e92500934c5071f83b071ba04db01eda3b962f5670"
+          }
+        }
+      ]
+    }
+  ]
+}

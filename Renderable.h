@@ -3,8 +3,6 @@
 #include <SDL.h>
 #include <SDL_image.h>
 
-#pragma message("compiled renderable")
-
 
 class Renderable
 {
