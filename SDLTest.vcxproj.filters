@@ -102,6 +102,9 @@
     <ClInclude Include="CharIndicatorContainer.h">
       <Filter>Header Files\Uno</Filter>
     </ClInclude>
+    <ClInclude Include="PlayerColourPicker.h">
+      <Filter>Header Files\Uno</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Uno.cpp">
@@ -168,6 +171,9 @@
       <Filter>Source Files\Uno</Filter>
     </ClCompile>
     <ClCompile Include="CharIndicatorContainer.cpp">
+      <Filter>Source Files\Uno</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerColourPicker.cpp">
       <Filter>Source Files\Uno</Filter>
     </ClCompile>
   </ItemGroup>

@@ -38,6 +38,18 @@ void Hand::PlayPlayableCard()
 
 }
 
+Card* Hand::GetPlayableCard()
+{
+	for (Card* card : hand)
+	{
+		if (playDeck->CanTakeCard(card))
+		{
+			return card;
+		}
+	}
+	return NULL;
+}
+
 int Hand::GetHandSize()
 {
 	return hand.size();
@@ -63,6 +75,14 @@ bool Hand::CanCardBePlayed(Card* card)
 void Hand::DrawCard()
 {
 	hand.push_back(drawDeck->DrawCard());
+}
+
+void Hand::DrawCard(int numOfCards)
+{
+	for (int i = 0; i < numOfCards; i++)
+	{
+		hand.push_back(drawDeck->DrawCard());
+	}
 }
 
 void Hand::RenderCall(SDL_Renderer* renderable)

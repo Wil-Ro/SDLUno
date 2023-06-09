@@ -27,10 +27,19 @@ int PlayerCharacter::GetHandSize()
 	return hand->GetHandSize();
 }
 
-void PlayerCharacter::ForceDrawCard()
+void PlayerCharacter::ForceDrawCard(int numOfCards)
 {
-	hand->DrawCard();
+	for (int i = 0; i < numOfCards; i++)
+	{
+		hand->DrawCard();
+	}
 	turnTaken = true;
+}
+
+SDL_Color PlayerCharacter::PickNewColour() 
+{
+	PlayerColorPicker picker;
+	return picker.Run();
 }
 
 PlayerCharacter::PlayerCharacter(Display* display, Deck* drawDeck, Deck* playDeck, Hand** handReturn)

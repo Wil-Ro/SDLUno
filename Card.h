@@ -34,6 +34,7 @@ public:
 	void RenderCall(SDL_Renderer* renderer);
 
 	int GetValue();
+	SDL_Color GetColour();
 
 	bool interactable = false;
 	bool facingPlayer = true;

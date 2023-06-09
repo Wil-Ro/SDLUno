@@ -22,9 +22,18 @@ void Character::ResetTurn()
 	turnTaken = false;
 }
 
-void Character::ForceDrawCard()
+void Character::ForceDrawCard(int numOfCards)
 {
-	// just here to be overriden
+	for (int i = 0; i < numOfCards; i++)
+	{
+		hand->DrawCard();
+	}
+	turnTaken = true;
+}
+
+SDL_Color Character::PickNewColour()
+{
+	return hand->GetPlayableCard()->GetColour();
 }
 
 int Character::GetHandSize()

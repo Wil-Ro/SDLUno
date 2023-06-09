@@ -1,3 +1,2 @@
-﻿  GameMaster.cpp
-C:\Users\Rosia\source\repos\SDLTest\GameMaster.cpp(95,26): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+﻿  Card.cpp
   SDLTest.vcxproj -> C:\Users\Rosia\source\repos\SDLTest\x64\Debug\SDLTest.exe

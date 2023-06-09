@@ -31,6 +31,11 @@ Card::Card(SDL_Renderer* renderer, SDL_Rect rect, SDL_Color color, int value, bo
 		break;
 	}
 
+	if (value == 13)
+	{
+		this->color = {0, 0, 0, 255};
+	}
+
 	text = new Text(renderer, cardVal.c_str(), 50, location, {255, 255, 255, 255});
 	text->CenterTexture(location);
 }
@@ -86,8 +91,17 @@ void Card::RenderCall(SDL_Renderer* renderer)
 			location.h / 2,
 			location.h / 2
 		};
-
 		SDL_RenderCopy(renderer, reverseIcon, NULL, &iconLocation);
+	}
+	else if (value == 13)
+	{
+		SDL_Rect iconLocation = {
+			location.x + location.w / 8,
+			location.y + location.h / 4,
+			location.h / 2,
+			location.h / 2
+		};
+		SDL_RenderCopy(renderer, colourWheelIcon, NULL, &iconLocation);
 	}
 	else
 	{
@@ -117,4 +131,9 @@ bool Card::HasLinkWith(Card* card)
 int Card::GetValue()
 {
 	return value;
+}
+
+SDL_Color Card::GetColour()
+{
+	return color;
 }

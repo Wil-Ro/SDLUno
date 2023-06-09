@@ -17,11 +17,13 @@ public:
 	Hand(Deck* drawDeck, Deck* playDeck);
 
 	void DrawCard();
+	void DrawCard(int numOfCards);
 	void PlayCard(Card* card);
 	void FillHand();
 	bool CanCardBePlayed(Card* card);
 
 	void PlayPlayableCard();
+	Card* GetPlayableCard();
 
 	virtual int GetHandSize();
 

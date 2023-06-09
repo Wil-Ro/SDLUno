@@ -54,7 +54,10 @@ void GameMaster::IncreaseTurn()
 
 		currentTurn += turnChange;
 
-		currentTurn = currentTurn % characters.size();
+		if (currentTurn == -1)
+			currentTurn = characters.size()-1;
+		else
+			currentTurn = currentTurn % characters.size();
 
 		characters[previousTurn]->ResetTurn();
 		characters[currentTurn]->StartTurn();
@@ -111,7 +114,7 @@ void GameMaster::SetWinFunc(std::function<void(int)> func)
 
 void GameMaster::ChangeTurnOrder()
 {
-	SDL_Log("OFDHDFGD");
+	SDL_Log("Changing turn order");
 	if (turnChange == 1)
 	{
 		turnChange = -1;
@@ -122,21 +125,39 @@ void GameMaster::ChangeTurnOrder()
 	}
 }
 
+void GameMaster::ForceCards(int numOfCards)
+{
+	// set it to next players turn and force them to draw for it
+	// this then ends their turn
+	SDL_Log("Forcing cards on a player");
+	IncreaseTurn();
+	characters[currentTurn]->ForceDrawCard(numOfCards);
+}
+
+void GameMaster::ChangeColor()
+{
+
+	//THIS NEEDS FINISHING
+	SDL_Log("Altering current colour through black card");
+	
+	characters[currentTurn]->PickNewColour();
+}
+
 void GameMaster::ProcessCard(Card* card)
 {
 	switch (card->GetValue())
 	{
 	case PLUS_TWO_CARD:
-		SDL_Log("Player played plus two card");
+		ForceCards(2);
 		break;
 	case PLUS_FOUR_CARD:
-		SDL_Log("Player played plus four card");
+		ForceCards(4);
 		break;
 	case REVERSE_CARD:
 		ChangeTurnOrder();
 		break;
 	case WILD_CARD_CARD:
-		SDL_Log("Player played wild card");
+		ChangeColor();
 		break;
 	} //TODO THIS, also make wildcards render
 }

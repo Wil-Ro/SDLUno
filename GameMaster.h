@@ -35,6 +35,9 @@ public:
 	void ProcessCard(Card* card);
 private:
 	void ChangeTurnOrder();
+	void ForceCards(int numOfCards);
+	void ChangeColor();
+
 	void OnEmptyDeck();
 
 	int currentTurn = 0;

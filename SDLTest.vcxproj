@@ -142,6 +142,7 @@
     <ClInclude Include="Hand.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="PlayerCharacter.h" />
+    <ClInclude Include="PlayerColourPicker.h" />
     <ClInclude Include="PlayerHand.h" />
     <ClInclude Include="RectMaths.h" />
     <ClInclude Include="Renderable.h" />
@@ -165,6 +166,7 @@
     <ClCompile Include="Hand.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="PlayerCharacter.cpp" />
+    <ClCompile Include="PlayerColourPicker.cpp" />
     <ClCompile Include="PlayerHand.cpp" />
     <ClCompile Include="Renderable.cpp" />
     <ClCompile Include="TurnIndicator.cpp" />

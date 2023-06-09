@@ -1,6 +1,8 @@
 #pragma once
 #include "Character.h"
 #include "Display.h"
+#include "PlayerColourPicker.h"
+
 class PlayerCharacter : public Character
 {
 private:
@@ -11,7 +13,9 @@ public:
 	void StartTurn();
 	void ResetTurn();
 
-	void ForceDrawCard();
+	void ForceDrawCard(int numOfCards = 1);
+
+	SDL_Color PickNewColour();
 
 	int GetHandSize();
 

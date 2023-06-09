@@ -19,8 +19,9 @@ public:
 	virtual void TakeTurn();
 	virtual void StartTurn();
 	virtual void ResetTurn();
+	virtual SDL_Color PickNewColour();
 
-	virtual void ForceDrawCard();
+	virtual void ForceDrawCard(int numOfCards = 1);
 
 	virtual int GetHandSize();
 
