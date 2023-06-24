@@ -10,7 +10,7 @@ GameMaster::GameMaster(Display* display, BaseEventHandler* handler, Deck* playDe
 	playDeck->SetFuncProcessCard([this](Card* card){ProcessCard(card);});
 
 	drawDeck->FillDeck(display->renderer, false);
-	playDeck->PlayCard(drawDeck->DrawCard());
+	playDeck->PlayCardWithoutEffect(drawDeck->DrawCard());
 
 	// unhard code this eventually
 	Hand* playerHand = 0;
@@ -136,11 +136,11 @@ void GameMaster::ForceCards(int numOfCards)
 
 void GameMaster::ChangeColor()
 {
-
-	//THIS NEEDS FINISHING
 	SDL_Log("Altering current colour through black card");
 	
-	characters[currentTurn]->PickNewColour();
+	SDL_Color newColor = characters[currentTurn]->PickNewColour();
+
+	playDeck->PeekTopCard()->OverrideColour(newColor);
 }
 
 void GameMaster::ProcessCard(Card* card)
@@ -159,6 +159,7 @@ void GameMaster::ProcessCard(Card* card)
 	case WILD_CARD_CARD:
 		ChangeColor();
 		break;
-	} //TODO THIS, also make wildcards render
+	} 
 }
 
+// TODO: when filling deck, shuffle bad cards back in

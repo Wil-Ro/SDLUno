@@ -1,2 +1,13 @@
-﻿  Card.cpp
+﻿  CharIndicatorContainer.cpp
+  Display.cpp
+  GameMaster.cpp
+C:\Users\Rosia\source\repos\SDLTest\GameMaster.cpp(58,37): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Rosia\source\repos\SDLTest\GameMaster.cpp(98,26): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  Main.cpp
+  PlayerCharacter.cpp
+  PlayerColourPicker.cpp
+  TurnIndicator.cpp
+  UITestCode.cpp
+  Uno.cpp
+  Generating Code...
   SDLTest.vcxproj -> C:\Users\Rosia\source\repos\SDLTest\x64\Debug\SDLTest.exe

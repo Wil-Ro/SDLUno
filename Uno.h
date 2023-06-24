@@ -13,7 +13,14 @@
 
 #include "FPSCounter.h"
 
+#ifdef _WIN32
+#include <SDL.h>
+#endif
+
+#ifdef unix
 #include <SDL2/SDL.h>
+#endif
+
 
 #include <string>
 #include <iostream>

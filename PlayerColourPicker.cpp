@@ -36,6 +36,8 @@ SDL_Color PlayerColorPicker::Run()
 		SDL_Delay(10);
 	}
 
+	delete display;
+
 	return *chosenColor;
 }
 

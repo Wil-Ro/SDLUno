@@ -11,9 +11,19 @@ forward it is.
 */
 
 #pragma once
+#ifdef _WIN32
+#include <SDL.h>
+#include <SDL_image.h>
+#include <SDL_ttf.h>
+#endif
+
+#ifdef unix
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
+#endif
+
+
 
 #include <list>
 
@@ -37,6 +47,7 @@ public:
 
 public:
 	Display(int w, int h, const char* windowTitle, SDL_Color backgroundColor = { 0, 0, 0, 255 });
+	~Display();
 	static void init();
 	static void exit();
 	void RenderAll();
@@ -44,6 +55,7 @@ public:
 	void ProcessRender();
 	void PrepareRender();
 	void ClearRenderables();
+	
 
 
 	int w() const { return w_; }

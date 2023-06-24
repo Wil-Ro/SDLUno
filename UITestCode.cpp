@@ -1,3 +1,4 @@
+
 #include "Display.h"
 #include "BaseEventHandler.h"
 #include "Slider.h"
@@ -55,7 +56,11 @@ int UiTest()
 
 		testText.ChangeText(display.renderer, std::to_string(testSlider.GetValue()).c_str());
 		char fpsLabel[15] = "fps: ";
-		strcat(fpsLabel, std::to_string(fpsCounter.GetFrameCount()).c_str());// if this doesnt work, use strcat_s() instead
+#ifdef _WIN32 // wacky compiler differences
+		strcat_s(fpsLabel, std::to_string(fpsCounter.GetFrameCount()).c_str());
+#else
+		strcat(fpsLabel, std::to_string(fpsCounter.GetFrameCount()).c_str());
+#endif
 		fpsText.ChangeText(display.renderer, fpsLabel);
 
 		handler.Handle();

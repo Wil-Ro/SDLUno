@@ -1,5 +1,14 @@
 #pragma once
+
+#ifdef _WIN32
+#include <SDL.h>
+#endif
+
+#ifdef unix
 #include <SDL2/SDL.h>
+#endif
+
+
 #include <functional>
 #include "BaseStructs.h"
 #include "Interactable.h"

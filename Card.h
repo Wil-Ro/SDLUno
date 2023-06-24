@@ -1,7 +1,14 @@
 #pragma once
 #include "Interactable.h"
 #include "Text.h"
+
+#ifdef _WIN32
+#include <SDL_image.h>
+#endif
+
+#ifdef unix
 #include <SDL2/SDL_image.h>
+#endif
 
 #define PLUS_TWO_CARD 10
 #define PLUS_FOUR_CARD 11
@@ -35,6 +42,8 @@ public:
 
 	int GetValue();
 	SDL_Color GetColour();
+
+	void OverrideColour(SDL_Color color);
 
 	bool interactable = false;
 	bool facingPlayer = true;

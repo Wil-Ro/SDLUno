@@ -29,15 +29,24 @@ void Deck::PlayCard(Card* card, bool facingPlayer)
 	card->facingPlayer = facingPlayer;
 	deck.push(card);
 
-	// any card above 9 is a special card, GameMaster deals with these
-	//TODO make sure card effects done trigger when deck is first filled using this method
 	if (funcProcessCard != NULL &&  card->GetValue() > 9)
 		funcProcessCard(card);
+}
+
+void Deck::PlayCardWithoutEffect(Card* card, bool facingPlayer)
+{
+	card->facingPlayer = facingPlayer;
+	deck.push(card);
 }
 
 bool Deck::CanTakeCard(Card* card)
 {
 	return deck.top()->HasLinkWith(card);
+}
+
+Card* Deck::PeekTopCard()
+{
+	return deck.top();
 }
 
 // this is where we are rn
@@ -58,13 +67,13 @@ void Deck::FillDeck(SDL_Renderer* renderer, bool facingPlayer)
 	{
 		for (int i = 0; i <= 12; i++)
 		{
-			PlayCard(new Card(
+			deck.push(new Card(
 				renderer,
 				{ 5 + (i * 105), 5 + (j * 155), 0, 0 },
 				colors[j],
 				i+1,
 				facingPlayer
-			), facingPlayer);
+			));
 		}
 	}
 	ShuffleDeck();

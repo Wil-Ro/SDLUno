@@ -1,6 +1,14 @@
 #pragma once
 #include "Renderable.h"
+
+#ifdef _WIN32
+#include <SDL_ttf.h>
+#endif
+
+#ifdef unix
 #include <SDL2/SDL_ttf.h>
+#endif
+
 class Text:public Renderable
 {
 public:

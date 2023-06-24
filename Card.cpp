@@ -125,12 +125,19 @@ bool Card::HasLinkWith(Card* card)
 
 	bool valueMatch = card->value == value;
 	
+	if (card->value == 13 || this->value == 13)
+		valueMatch = true;
 	return colorMatch || valueMatch;
 }
 
 int Card::GetValue()
 {
 	return value;
+}
+
+void Card::OverrideColour(SDL_Color color)
+{
+	this->color = color;
 }
 
 SDL_Color Card::GetColour()

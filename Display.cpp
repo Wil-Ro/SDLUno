@@ -20,6 +20,12 @@
 			SDL_LogError(0, "failed to create renderer");
 	}
 
+	Display::~Display()
+	{
+		SDL_DestroyWindow(window);
+		SDL_DestroyRenderer(renderer);
+		exit();
+	}
 	
 	void Display::init()
 	{

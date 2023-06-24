@@ -1,5 +1,13 @@
 #pragma once
+
+#ifdef _WIN32
+#include <SDL.h>
+#endif
+
+#ifdef unix
 #include <SDL2/SDL.h>
+#endif
+
 #include "Display.h"
 #include "Renderable.h"
 #include "BaseEventHandler.h"

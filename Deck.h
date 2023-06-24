@@ -17,7 +17,11 @@ public:
 
 	Card* DrawCard(bool facingPlayer = true);
 	void PlayCard(Card* card, bool facingPlayer = true);
+	void PlayCardWithoutEffect(Card* card, bool facingPlayer = true);
 	bool CanTakeCard(Card* card);
+
+
+	Card* PeekTopCard();
 
 	void FillDeck(SDL_Renderer* renderer, bool facingPlayer = true);
 	void FillDeckFromDeck(Deck* sourceDeck, bool shuffle = true, bool facingPlayer = true);
