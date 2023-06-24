@@ -4,7 +4,7 @@ This should do all the basic events you need to look into, namely system stuff
 and ui stuff, any sort of game input should be done elsewhere
 */
 #pragma once
-#include <SDL.h>
+#include <SDL2/SDL.h>
 #include <list>
 #include "Button.h"
 #include "BaseStructs.h"

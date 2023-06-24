@@ -1,4 +1,4 @@
-#include "spaceShooter.h"
+#include "SpaceShooter.h"
 
 void SpaceShooter::run()
 {

@@ -1,7 +1,7 @@
 #pragma once
 #include "Interactable.h"
 #include "Text.h"
-#include <SDL_image.h>
+#include <SDL2/SDL_image.h>
 
 #define PLUS_TWO_CARD 10
 #define PLUS_FOUR_CARD 11

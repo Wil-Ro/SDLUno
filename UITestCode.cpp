@@ -55,7 +55,7 @@ int UiTest()
 
 		testText.ChangeText(display.renderer, std::to_string(testSlider.GetValue()).c_str());
 		char fpsLabel[15] = "fps: ";
-		strcat_s(fpsLabel, std::to_string(fpsCounter.GetFrameCount()).c_str());
+		strcat(fpsLabel, std::to_string(fpsCounter.GetFrameCount()).c_str());// if this doesnt work, use strcat_s() instead
 		fpsText.ChangeText(display.renderer, fpsLabel);
 
 		handler.Handle();

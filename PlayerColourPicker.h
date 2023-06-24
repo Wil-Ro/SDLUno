@@ -1,5 +1,5 @@
 #pragma once
-#include <SDL.h>
+#include <SDL2/SDL.h>
 #include "Display.h"
 #include "Renderable.h"
 #include "BaseEventHandler.h"
