@@ -1,2 +1,2 @@
 # SDL Uno
- A general repository for my work with SDL, currently an Uno game
+ Originally a general repo for my work learning SDL this eventually became a small verison of the UNO card game. This was also my first proper full size C++ project.
